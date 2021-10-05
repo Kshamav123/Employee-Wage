@@ -8,12 +8,21 @@ class EmployeeWage {
     let Is_Full_Time = 1
     let Is_Part_Time = 2
 
-    init(){
+    var company: String
+    var empRate: Int
+    var workingDays: Int
+    var maxHrs: Int
 
+    init(company: String, empRate: Int, workingDays: Int, maxHrs: Int){
+
+        self.company = company
+        self.empRate = empRate
+        self.maxHrs = maxHrs
+        self.workingDays = workingDays
 
     }
 
-    func computeWage(empRate: Int, workingDays: Int, maxHrs: Int, company :String){
+    func computeWage(){
 
         var empHrs = 0
         var totalWorkHrs  = 0
@@ -21,7 +30,7 @@ class EmployeeWage {
         var empTotalWage = 0
         var empDailyWage = 0
 
-        while (totalWorkHrs <= 100 && totalWorkingDays < 20)
+        while (totalWorkHrs <= maxHrs && totalWorkingDays < workingDays)
         {
             totalWorkingDays += 1
         let empCheck = Int.random(in: 0..<5)
@@ -48,6 +57,7 @@ class EmployeeWage {
 
 }
 
-let company = EmployeeWage();
-company.computeWage(empRate: 20, workingDays: 10, maxHrs: 100, company: "Appple")
-company.computeWage(empRate: 25, workingDays: 10, maxHrs: 200, company: "Reliance")
+let company1 = EmployeeWage(company: "Apple", empRate: 10, workingDays: 20, maxHrs: 100)
+let company2 = EmployeeWage(company: "Samsung", empRate: 20, workingDays: 15, maxHrs: 100)
+company1.computeWage()
+company2.computeWage()
