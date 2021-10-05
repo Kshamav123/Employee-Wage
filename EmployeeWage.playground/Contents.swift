@@ -5,9 +5,14 @@ import UIKit
  by genearting random number and also calculating wages for a month till
  a condition of 100 hours and 20 days are reached.
  */
-
+class EmployeeWage {
     
-print("Welcome to Employee Wage computeation")
+    var empDailyWage :Int = 0
+    var empTotalWage :Int = 0
+    var totalWorkHrs :Int = 0
+    var totalWorkingDays :Int = 0
+
+}
 
 let Is_Full_Time = 1
 let Is_Part_Time = 2
@@ -16,13 +21,10 @@ let Working_Days = 20
 let Work_Hours = 100
 
 var empHrs = 0
-var empDailyWage :Int = 0
-var empTotalWage :Int = 0
-var totalWorkHrs :Int = 0
-var totalWorkingDays :Int = 0
-while (totalWorkHrs <= 100 && totalWorkingDays < 20)
+let employee = EmployeeWage()
+while (employee.totalWorkHrs <= 100 && employee.totalWorkingDays < 20)
 {
-totalWorkingDays += 1
+    employee.totalWorkingDays += 1
 let empCheck = Int.random(in: 0..<5)
 switch empCheck
 {
@@ -37,12 +39,13 @@ case Is_Full_Time:
    
 default: empHrs = 0
 }
-    totalWorkHrs += empHrs
-    empDailyWage = Wage_Per_Hr * empHrs
-    empTotalWage += empDailyWage
+    employee.totalWorkHrs += empHrs
+    employee.empDailyWage = Wage_Per_Hr * empHrs
+    employee.empTotalWage += employee.empDailyWage
  
-    print("Daily wage" ,(empDailyWage))
+    print("Daily wage" ,(employee.empDailyWage))
 
 }
-print("Total wage",(empTotalWage))
+print("Total wage",(employee.empTotalWage))
+
 
